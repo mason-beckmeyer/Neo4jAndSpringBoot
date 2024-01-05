@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/tableUserAndAccount.css}" />
+
+</head>
+<body>
+<div>
+    <h1>
+        <p>
+            <a href="http://localhost:8080/home">Home</a>
+        </p>
+    </h1>
+
+</div>
+<div>
+    <h1>Accounts</h1>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Users</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="account : ${accounts}">
+        <td th:text = "${account.id}">ID: </td>
+        <td th:text = "${account.name}">NAME: </td>
+        <td th:text = "${account.typeOfAccount}">TYPE: </td>
+        <td >USER:
+        <ul th:each = "user : ${account.users}">
+            <li th:text="${user.firstName}">
+                USER NAME:
+            </li>
+            <li th:text="${user.lastName}">
+                LAST NAME:
+            </li>
+        </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
